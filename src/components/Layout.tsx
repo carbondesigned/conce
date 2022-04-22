@@ -9,8 +9,7 @@ const Layout = (props: Props) => {
   return (
     <main className='flex'>
       <Navbar />
-
-      <section className='flex-[3]'>{props.children}</section>
+      <section className='flex-[6] px-24'>{props.children}</section>
     </main>
   );
 };

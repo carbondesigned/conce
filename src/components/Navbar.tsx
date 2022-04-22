@@ -7,10 +7,9 @@ export type Props = {};
 const Navbar = () => {
   const router = useRouter();
   const { pathname: id } = router;
-  const [links, setLinks] = useState([
+  const links = [
     {
       id: 0,
-      active: true,
       item: 'Home',
       link: '/',
       icon: (
@@ -32,7 +31,6 @@ const Navbar = () => {
     },
     {
       id: 1,
-      active: false,
       item: 'Sessions',
       link: '/sessions',
       icon: (
@@ -48,7 +46,6 @@ const Navbar = () => {
     },
     {
       id: 2,
-      active: false,
       item: 'Saved Sessions',
       link: '/saved',
       icon: (
@@ -62,9 +59,9 @@ const Navbar = () => {
         </svg>
       ),
     },
-  ]);
+  ];
   return (
-    <nav className='m-6 h-[95vh] w-full flex-1 rounded-3xl bg-white py-12 px-6'>
+    <nav className='ml-6 mt-6 mb-6 h-[95vh] w-full flex-1 rounded-3xl bg-white py-12 px-6'>
       <div className='mb-20 flex justify-center'>
         <div className='w-full rounded-2xl bg-black py-5 px-12 text-center font-bold text-white'>
           Sign Up
@@ -73,18 +70,6 @@ const Navbar = () => {
       <ul className='flex flex-col items-center gap-2'>
         {links.map((link, index) => (
           <ListItem
-            onClick={() => {
-              setLinks(
-                links.map((link) => {
-                  return { ...link, active: false };
-                })
-              );
-              setLinks(
-                links.map((link) => {
-                  return { ...link, active: link.id === index };
-                })
-              );
-            }}
             key={index}
             active={link.link === id ? true : false}
             link={link.link}

@@ -5,7 +5,9 @@
       "@/components/*": ["src/components/*"],
       "@/pages/*": ["src/pages/*"],
       "@/db/*": ["src/db/*"],
-      "@/backend/*": ["src/backend/*"]
+      "@/backend/*": ["src/backend/*"],
+      "@/types/*": ["src/utils/types"],
+      "@/utils/*": ["src/utils/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
