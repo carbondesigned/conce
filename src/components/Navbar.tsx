@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React from 'react';
 import { ListItem } from './ListItem';
 
 export type Props = {};

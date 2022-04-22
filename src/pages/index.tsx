@@ -1,15 +1,21 @@
+import CreateSessionModal from '@/components/CreateSessionModal';
+import Fab from '@/components/Fab';
 import Layout from '@/components/Layout';
 import Session from '@/components/Session';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import useStore from 'src/store';
 import { trpc } from 'src/utils/trpc';
 
 const Home: NextPage = () => {
+  const store = useStore();
   const { data: sessions, isLoading } = trpc.useQuery([
     'sessions.get-all-sessions',
   ]);
+  console.log(store.open);
   return (
     <>
+      {store.open && <CreateSessionModal />}
       <Head>
         <title>Conce | A focus app all in one</title>
         <meta
@@ -20,6 +26,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Layout>
+        {!store.open && <Fab />}
         <section>
           <h1 className='py-6 text-6xl font-normal uppercase text-gray-300'>
             Recent Sessions

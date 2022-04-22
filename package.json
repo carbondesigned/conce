@@ -15,12 +15,14 @@
     "@trpc/next": "^9.22.0",
     "@trpc/react": "^9.22.0",
     "@trpc/server": "^9.22.0",
+    "immer": "^9.0.12",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-query": "^3.38.0",
     "superjson": "^1.8.2",
-    "zod": "^3.14.4"
+    "zod": "^3.14.4",
+    "zustand": "^4.0.0-rc.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.13.0",
