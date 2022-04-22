@@ -1,13 +1,12 @@
+import Layout from '@/components/Layout';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import { trpc } from 'src/utils/trpc';
 
 const Home: NextPage = () => {
   const { data, isLoading } = trpc.useQuery(['sessions.get-all-sessions']);
-  console.log(data);
   return (
-    <div>
+    <>
       <Head>
         <title>Conce | A focus app all in one</title>
         <meta
@@ -17,11 +16,10 @@ const Home: NextPage = () => {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <main>
+      <Layout>
         {isLoading ? <p>Loading...</p> : <p>{JSON.stringify(data)}</p>}
-      </main>
-    </div>
+      </Layout>
+    </>
   );
 };
 

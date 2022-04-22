@@ -6,7 +6,6 @@ import { createSessionValidator } from 'src/shared/create-session-validator';
 export const sessionRouter = createRouter()
   .query('get-all-sessions', {
     async resolve({ ctx }) {
-      /* if (!ctx.token) return []; */
       const sessions = await prisma.session.findMany({
         where: {
           userId: ctx.token,
