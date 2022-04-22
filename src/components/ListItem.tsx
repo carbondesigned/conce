@@ -6,11 +6,13 @@ type Props = {
   active: boolean;
   link: string;
   icon: React.ReactNode;
+  onClick: () => void;
 };
 
 export const ListItem = (props: Props) => {
   return (
     <li
+      onClick={props.onClick}
       className={`w-full gap-6 rounded-xl ${
         props.active ? 'bg-black text-white' : 'bg-gray-50 text-gray-400'
       } px-6 py-2 `}
