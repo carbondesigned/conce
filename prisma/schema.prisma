@@ -1,10 +1,12 @@
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 model User {
@@ -26,11 +28,12 @@ model Password {
 }
 
 model Session {
-  id          String @id @default(cuid())
+  id          String  @id @default(cuid())
   title       String
-  description String
-  pomodors    Int
-  breakTime   Int
+  description String  @db.VarChar(500)
+  image       String?
+  pomodors    Int?
+  breakTime   Int?
   tasks       Task[]
 
   createdAt DateTime @default(now())
@@ -41,9 +44,9 @@ model Session {
 }
 
 model Task {
-  id                String @id @default(cuid())
+  id                String  @id @default(cuid())
   title             String
-  description       String
+  description       String?
   estimatePomodoros Int
 
   createdAt   DateTime @default(now())
