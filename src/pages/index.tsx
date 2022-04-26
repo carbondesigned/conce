@@ -12,6 +12,7 @@ const Home: NextPage = () => {
   const { data: sessions, isLoading } = trpc.useQuery([
     'sessions.get-all-sessions',
   ]);
+  console.log(sessions);
   return (
     <>
       {store.open && <CreateSessionModal />}
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
             Recent Sessions
           </h1>
           {isLoading && <p>Loading...</p>}
-          <div className='flex flex-wrap gap-6'>
+          <div className='grid grid-cols-3 gap-6'>
             {sessions?.map((session) => (
               <Session key={session.id} session={session} />
             ))}

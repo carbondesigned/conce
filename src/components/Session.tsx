@@ -12,13 +12,14 @@ type Props = {
 const Session = ({ session }: Props) => {
   const [image] = React.useState(generateRandomImage(images));
   return (
-    <div className='flex-1 overflow-hidden rounded-2xl bg-white'>
+    <div className='overflow-hidden rounded-2xl bg-white'>
       <div className='relative h-48 max-w-full'>
         <Image
           src={!session.image ? image : session.image}
           layout='fill'
           objectFit='cover'
           objectPosition='center'
+          alt='session cover image'
         />
       </div>
       <div className='p-6'>

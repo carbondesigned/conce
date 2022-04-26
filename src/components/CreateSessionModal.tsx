@@ -1,4 +1,3 @@
-import React from 'react';
 import Overlay from './Overlay';
 import { generateRandomImage, images } from '@/utils/generateRandomImage';
 import Image from 'next/image';
@@ -8,32 +7,34 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createSessionValidator } from 'src/shared/create-session-validator';
 import { trpc } from '@/utils/trpc';
 import { ISession } from '@/types/*';
+
 /* type Props = {} */
 
 const CreateSessionModal = () => {
   const createSessionMutation = trpc.useMutation(['sessions.create-session']);
   const store = useStore();
+  const utils = trpc.useContext();
+
   const {
     register,
-    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm<ISession>({
     resolver: zodResolver(createSessionValidator),
   });
   const onSubmit = handleSubmit((data) => {
-    store.setClose();
-    createSessionMutation.mutate({
-      title: data.title,
-      description: data.description,
-      image: null,
+    createSessionMutation.mutate(data, {
+      onSuccess: () => {
+        store.setClose();
+        utils.invalidateQueries('sessions.get-all-sessions');
+      },
     });
-    console.log(data);
   });
 
   if (errors) {
     console.log(errors);
   }
+
   return (
     <Overlay>
       <div className='relative mx-auto flex max-w-screen-xl flex-col overflow-hidden rounded-2xl bg-white lg:w-[50%]'>
@@ -84,7 +85,7 @@ const CreateSessionModal = () => {
               </label>
               <div className='relative'>
                 <input
-                  {...register('title', { required: true })}
+                  {...register('title')}
                   type='text'
                   className='w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm'
                   placeholder='Enter Title'

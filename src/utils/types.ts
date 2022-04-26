@@ -11,7 +11,7 @@ export type ISession = {
   userId: string;
 };
 
-export interface ITask {
+export type ITask = {
   id: string;
   title: string;
   description?: string;
@@ -19,6 +19,5 @@ export interface ITask {
   createdAt: Date;
   updatedAt: Date;
   completedAt?: Date;
-  session: ISession;
   sessionId: string;
-}
+};

@@ -30,11 +30,10 @@ export const sessionRouter = createRouter()
   .mutation('create-session', {
     input: createSessionValidator,
     async resolve({ input, ctx }) {
-      if (!ctx.token) return null;
       return await prisma.session.create({
         data: {
           ...input,
-          userId: ctx.token,
+          userId: ctx.token ?? '',
         },
       });
     },
