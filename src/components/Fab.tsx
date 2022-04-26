@@ -7,7 +7,7 @@ const Fab = () => {
   const store = useStore();
   return (
     <div
-      className='absolute bottom-10 left-10 cursor-pointer'
+      className='absolute bottom-10 right-10 cursor-pointer'
       onClick={() => store.setOpen()}
     >
       <div className='grid h-16 w-16 place-items-center rounded-full bg-black'>

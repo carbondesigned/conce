@@ -7,9 +7,9 @@ type Props = {
 
 const Layout = (props: Props) => {
   return (
-    <main className='flex'>
+    <main className='flex justify-end'>
       <Navbar />
-      <section className='relative flex-[6] px-24'>{props.children}</section>
+      <section className='relative w-[80%] px-24'>{props.children}</section>
     </main>
   );
 };

@@ -61,7 +61,7 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className='ml-6 mt-6 mb-6 h-[95vh] w-full flex-1 rounded-3xl bg-white py-12 px-6'>
+    <nav className='fixed left-0 z-20 ml-6 mt-6 mb-6 h-full w-[20%] flex-1 rounded-3xl bg-white py-12 px-6'>
       <div className='mb-20 flex justify-center'>
         <div className='w-full rounded-2xl bg-black py-5 px-12 text-center font-bold text-white'>
           Sign Up
