@@ -1,4 +1,4 @@
-export interface ISession {
+export type ISession = {
   id: string;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ export interface ISession {
   createdAt: Date;
   updatedAt: Date;
   userId: string;
-}
+};
 
 export interface ITask {
   id: string;

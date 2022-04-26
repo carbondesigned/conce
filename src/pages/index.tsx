@@ -12,7 +12,6 @@ const Home: NextPage = () => {
   const { data: sessions, isLoading } = trpc.useQuery([
     'sessions.get-all-sessions',
   ]);
-  console.log(store.open);
   return (
     <>
       {store.open && <CreateSessionModal />}
