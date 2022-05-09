@@ -12,6 +12,7 @@ function getBaseUrl() {
   if (typeof window !== 'undefined') {
     return '';
   }
+  // typeof window === 'undefined'
   if (process.browser) return ''; // Browser should use current path
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
 

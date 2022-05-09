@@ -1,3 +1,6 @@
+/**
+ * @description Best practice to initialize the prisma client for the database
+ */
 import { PrismaClient } from '@prisma/client';
 
 declare global {

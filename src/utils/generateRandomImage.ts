@@ -36,6 +36,12 @@ export const images = [
   },
 ];
 
+/**
+ * It takes an array of objects with a category and image property, and returns a random image from the
+ * array
+ * @param {{ category: string; image: string }[]} images - { category: string; image: string }[]
+ * @returns A random image from the images array
+ */
 export function generateRandomImage(
   images: { category: string; image: string }[]
 ): string {

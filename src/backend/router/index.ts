@@ -4,6 +4,7 @@ import { createRouter } from './context';
 
 export const appRouter = createRouter()
   .transformer(superjson)
+  // able to merge multiple routers
   .merge('sessions.', sessionRouter);
 
 // export type definition of API

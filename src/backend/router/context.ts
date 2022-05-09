@@ -10,8 +10,8 @@ export async function createContext(opts?: trpcNext.CreateNextContextOptions) {
   // This is just an example of something you'd might want to do in your ctx fn
   /*   async function getUserFromHeader() {
     if (opts?.req.headers.authorization) {
-      // const user = await decodeJwtToken(req.headers.authorization.split(' ')[1])
-      // return user;
+       const user = await decodeJwtToken(req.headers.authorization.split(' ')[1])
+       return user;
     }
   } */
   /*   const user = await getUserFromHeader();
