@@ -2,6 +2,7 @@ import CreateSessionModal from '@/components/CreateSessionModal';
 import Fab from '@/components/Fab';
 import Layout from '@/components/Layout';
 import Session from '@/components/Session';
+import { ISession } from '@/types/*';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import useStore from 'src/store';
@@ -33,7 +34,7 @@ const Home: NextPage = () => {
           </h1>
           {isLoading && <p>Loading...</p>}
           <div className='flex flex-wrap gap-6'>
-            {sessions?.map((session) => (
+            {sessions?.map((session: ISession) => (
               <Session key={session.id} session={session} />
             ))}
           </div>
