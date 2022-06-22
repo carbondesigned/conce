@@ -5,7 +5,7 @@ import { trpc } from '~/utils/trpc';
 
 const PostViewPage: NextPageWithLayout = () => {
   const id = useRouter().query.id as string;
-  const postQuery = trpc.useQuery(['post.byId', { id }]);
+  const postQuery = trpc.useQuery(['session.byId', { id }]);
 
   if (postQuery.error) {
     return (
@@ -25,7 +25,7 @@ const PostViewPage: NextPageWithLayout = () => {
       <h1>{data.title}</h1>
       <em>Created {data.createdAt.toLocaleDateString('en-us')}</em>
 
-      <p>{data.text}</p>
+      <p>{data.description}</p>
 
       <h2>Raw data:</h2>
       <pre>{JSON.stringify(data, null, 4)}</pre>
